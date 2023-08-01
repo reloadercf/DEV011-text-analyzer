@@ -1,3 +1,10 @@
 import analyzer from './analyzer.js';
 
-//TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
+const textAreaInput=document.querySelector('#inputText');
+const counterWords=document.querySelector('#counterWords')
+const counterLetter=document.querySelector('#counterLetter')
+
+textAreaInput.addEventListener('input', ()=>{
+  counterWords.textContent=analyzer.getWordCount(textAreaInput.value);
+  counterLetter.textContent=analyzer.getCharacterCount(textAreaInput.value);
+})
